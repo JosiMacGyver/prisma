@@ -1,9 +1,10 @@
 import prisma from "../utils/api"
 
 const getAll = async () => {
-    const products = await prisma.product.findMany();
+    const candidate = await prisma.candidate.findMany();
 
-    return products;
+    return candidate;
+
 }
 
 export default getAll;

@@ -10,10 +10,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Product {
-  id          String   @id @default(uuid())
-  name        String
-  quantity    Int
-  description String
-  expiry_date DateTime
+model Candidate{
+  id String   @id @default(uuid())
+  name  String
+  skills Skill[]
+}
+
+model Skill{
+  id String   @id @default(uuid())
+  skillName String
+  candidate Candidate @relation(fields: [candidateId], references: [id])
+  candidateId String
 }
